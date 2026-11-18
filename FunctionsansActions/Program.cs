@@ -71,8 +71,8 @@ namespace FunctionsansActions
             {
                 Console.WriteLine(l);
             }
-            Button b = new Button();
-            
+            Button b = new Button(); // לא הבנתי מבלשב הזה איך אני מדפיס את החלק השני כדי לבדוק שהוא עובד
+            b.OnClick += b.SimulateClick;
         }
     }
 }
