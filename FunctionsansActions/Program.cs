@@ -1,9 +1,23 @@
 ﻿using System.ComponentModel;
+using System.Threading.Channels;
 
 namespace FunctionsansActions
 {
     internal class Program
     {
+        public class Button 
+        {
+            public Action OnClick;
+
+            public void SimulateClick() 
+            {
+                Console.WriteLine("Button was clicked");
+                if (OnClick != null) 
+                {
+                    OnClick();
+                }
+            }
+        }
         public bool Returnbool(bool flag) 
         {
             return flag;
@@ -47,14 +61,18 @@ namespace FunctionsansActions
             FilterNumbers(arr,g);
             List<int> lst = new List<int>();
             lst = FilterNumbers(arr, g);
-            foreach (int l in arr) 
+            foreach (int l in lst) 
             {
                 Console.WriteLine(l);
             }
+            Predicate<int> f = BiggerThenTen;
+            FilterNumbers(arr, f);
+            foreach (int l in lst)
+            {
+                Console.WriteLine(l);
+            }
+            Button b = new Button();
             
-           
-
-
         }
     }
 }
