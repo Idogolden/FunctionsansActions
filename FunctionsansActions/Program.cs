@@ -18,6 +18,15 @@ namespace FunctionsansActions
                 }
             }
         }
+
+        public static void PrintMessage()
+        {
+            Console.WriteLine( "IDo hagadol");
+        }
+        public static void PrintMessage2()
+        {
+            Console.WriteLine( "Tal is a teacher");
+        }
         public bool Returnbool(bool flag) 
         {
             return flag;
@@ -72,7 +81,9 @@ namespace FunctionsansActions
                 Console.WriteLine(l);
             }
             Button b = new Button(); // לא הבנתי מבלשב הזה איך אני מדפיס את החלק השני כדי לבדוק שהוא עובד
-            b.OnClick += b.SimulateClick;
+            b.OnClick += PrintMessage;
+            b.OnClick +=PrintMessage2;
+            b.SimulateClick();
         }
     }
 }
